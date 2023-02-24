@@ -96,44 +96,6 @@ https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S9_basic_att
         - Accepts list (having learning rates accumulated throughout training) and image save location where graph is stored as jpg file.
         - Learning rates were accumulated for 2352 steps (24 epochs * 98 iterations). Each training epoch has 98 iterations as batch_size used was 512.
 
-<!-- Network-Diagram-->
-## Network Diagram
-- Network Diagram is as below
-![Network]()
-
-<!-- Loss-And-Accuracy-Plots -->
-## Loss And Accuracy Plots
-- Training Loss
-
-![Training_loss](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S9_basic_attention_module/train_loss.jpg)
-
-- Training Accuracy
-
-![Training_accuracy](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/Train_Accuracy_Tb.jpg)
-
-- Testing Loss
-
-![Testing_loss](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/Test_Loss_Tb.jpg)
-
-- Testing Accuracy
-
-![Testing_accuracy](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/Test_Accuracy_Tb.jpg)
-
-- LR Range-Test Curve
-
-![RangeTest_Curve](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/LRRange_Test.jpg)
-
-- OneCycleLR Curve
-![Onecycle](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/OnecycleLR_Curve_TB.jpg)
-
-<!-- Misclassified-Images -->
-## Misclassified Images
-- 20 misclassified images captured on final test epoch are as below
-
-![Misclassified](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/Test_Misclass_Imgs.jpg)
-
-- Tensorboard events for reference:
-https://github.com/anilbhatt1/Deep_Learning_EVA6_Phase1/blob/main/S9_basic_attention_module/events.out.tfevents.1626002789.698a263faa78.61.1
 
 <!-- LICENSE -->
 ## License
