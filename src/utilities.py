@@ -519,11 +519,11 @@ class LRRangeFinder():
                 self.tb_writer.add_scalar('Range_Test', lr_step, global_step=iter)
 
                 # smooth the loss
-                if self.loss:
-                    loss = smoothing * loss + (1 - smoothing) * self.loss[-1]
-                    self.loss.append(loss)
-                else:
-                    self.loss.append(loss)
+                # if self.loss:
+                #     loss = smoothing * loss + (1 - smoothing) * self.loss[-1]
+                #     self.loss.append(loss)
+                # else:
+                self.loss.append(loss.cpu().detach().numpy())
                 batch_idx += 1
 
         plt.ylabel("loss")
