@@ -33,21 +33,21 @@ ________
 - **Dataset Used** : CIFAR-10 , Image Resolution : 32x32x3
 - For Training details, refer below colab notebook locations:
     - Completely modularized - only calls main.py in colab notebook
-https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/EVA6_S9_Basic_Self_Attention_V2.ipynb
+https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S9_basic_attention_module/EVA8_S9_Basic_Self_Attention_V2.ipynb
     - Non-modularized - All functions and classes defined inside colab notebook iteslf
-https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/EVA8_S9_Basic_Self_Attention_V1.ipynb
+https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S9_basic_attention_module/EVA8_S9_Basic_Self_Attention_V1.ipynb
 - **main.py**
     - Main module from which everything else (listed below) were invoked.
 - **models.py**    
 	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/src/models.py
 	- Model used : **basic_attn_model*
 	- **Parameters** :25,680
-	- Model trained for 24 epochs with OneCycleLR policy and achieved 89.5% accuracy.
+	- Model trained for 24 epochs with OneCycleLR policy and achieved 38.53% accuracy.
 	- Max LR was achieved on 5th epoch.
     - L1 losses were used while training the model. L1_factor=0.0005
 	- Optimizer used was ADAM
 - **train_loss.py**
-	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/src/train_loss.py
+    - Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/src/train_loss.py
 	- Handles the training losses
 	- Class : **train_losses**
 		- Method **s9_train** is used to train the model.
@@ -55,7 +55,7 @@ https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_atten
 		- Training statistics - accuracy, loss - are collected using a **counter** defined in utilities.py
 		- Also train accuracy and loss were written to tensorboard using pytorch **Summarywriter** defined as **tb_writer** 
 - **test_loss.py**
-	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/src/test_loss.py
+	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/src/test_loss.py
 	- Handles the test losses
 	- Class : **test_losses**
 		- Method **s9_test** is used to test the model.
@@ -63,7 +63,7 @@ https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_atten
 		- Additionally misclassified images along with their predicted & actual labels are collected during last epochs.
 		- Misclassified images, accuracy and loss were written to tensorboard also using pytorch **Summarywriter**defined as **tb_writer**
 - **utilities.py**
-	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/src/utilities.py
+	- Location : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/src/utilities.py
 	- Class : **stats_collector**
 		- stats_collector is used to collect train & test statistics.
 		- It also collects misclassified images along with their predicted & actual labels.
@@ -105,7 +105,7 @@ https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_atten
 ## Loss And Accuracy Plots
 - Training Loss
 
-![Training_loss](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S9_basic_attention_module/Train_Loss_Tb.jpg)
+![Training_loss](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S9_basic_attention_module/train_loss.jpg)
 
 - Training Accuracy
 
