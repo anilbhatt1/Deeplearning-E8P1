@@ -211,7 +211,6 @@ class train_losses():
             train_iter = current_epoch * len(self.train_loader) + (batch_idx + 1)  # To find the iteration at which training is
 
             tb_writer.add_scalar('Train loss', round(train_loss.item(), 4), global_step=train_iter)
-            tb_writer.add_scalar('LR', round(lr, 4), global_step=train_iter)
 
             self.stats(round(train_loss.item(), 6), 'train_loss')
 
