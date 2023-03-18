@@ -192,7 +192,7 @@ class train_losses():
             data, target = data.to(self.device), target.to(self.device)
             with torch.cuda.amp.autocast():
                 y_pred = self.model(data)
-                train_loss = criterion(y_pred, target)
+                train_loss = F.nll_loss(y_pred, target)
 
             scaler.scale(train_loss).backward()
             if clip_norm:

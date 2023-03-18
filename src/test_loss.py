@@ -140,7 +140,7 @@ class test_losses():
               data, target = data.to(self.device), target.to(self.device)
               with torch.cuda.amp.autocast():
                 output = self.model(data)
-              test_loss += criterion(output, target, reduction='sum').item()  # sum up batch loss
+              test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
               pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
               correct += pred.eq(target.view_as(pred)).sum().item()
 
