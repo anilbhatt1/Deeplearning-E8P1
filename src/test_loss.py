@@ -134,11 +134,13 @@ class test_losses():
   def s10_test(self, current_epoch, tb_writer):
       self.model.eval()
       test_loss, correct, count_wrong = 0, 0, 0
+      criterion = nn.CrossEntropyLoss()
       with torch.no_grad():
           for data, target in self.test_loader:
               data, target = data.to(self.device), target.to(self.device)
-              output = self.model(data)
-              test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+              with torch.cuda.amp.autocast():
+                output = self.model(data)
+              test_loss += criterion(output, target, reduction='sum').item()  # sum up batch loss
               pred = output.argmax(dim=1, keepdim=True)  # get the index of the max log-probability
               correct += pred.eq(target.view_as(pred)).sum().item()
 

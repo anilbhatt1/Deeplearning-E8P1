@@ -710,7 +710,33 @@ class Tinyimagenet_Dataloader:
         return torch.utils.data.DataLoader(dataset=self.testdataset, batch_size=self.batch_size,
                                            num_workers=self.num_workers, shuffle=True, pin_memory=True)
 
+def S10_CIFAR10_data_prep(batch):
+    if cuda:
+        torch.cuda.manual_seed(1)
 
+    dataloader_args = dict(shuffle=True, batch_size=batch, num_workers=2, pin_memory=True) if cuda else dict(shuffle=True,
+                                                                                                           batch_size=64)
 
+    channels_mean  = [0.49139968, 0.48215841, 0.44653091]
+    channels_stdev = [0.24703223, 0.24348513, 0.26158784]
 
+    test_transforms  = Alb_trans([A.Normalize(mean=channels_mean, std=channels_stdev), ])
+    train_transforms = Alb_trans([A.Normalize(mean=channels_mean, std=channels_stdev),
+                                  A.Sequential([A.PadIfNeeded(min_height=40, min_width=40,
+                                                              border_mode=cv2.BORDER_CONSTANT,
+                                                              value=(0.49139968, 0.48215841, 0.44653091)),
+                                                A.RandomCrop(32, 32)], p=1.0),
+                                  A.Cutout(num_holes=1, max_h_size=16, max_w_size=16),
+                                  ])
+
+    train_data = datasets.CIFAR10('./data', train=True, download=True, transform=train_transforms)
+    test_data  = datasets.CIFAR10('./data', train=False, download=True, transform=test_transforms)
+
+    # train dataloader
+    trainloader = torch.utils.data.DataLoader(train_data, **dataloader_args)
+
+    # test dataloader
+    testloader = torch.utils.data.DataLoader(test_data, **dataloader_args)
+
+    return trainloader, testloader
 
