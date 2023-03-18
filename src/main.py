@@ -118,6 +118,7 @@ def s10_run_main(num_epochs):
     device = torch.device("cuda" if use_cuda else "cpu")
     model = ViT(image_size=32,patch_size= 4,num_classes=10, dim=49,depth=6,heads=8,mlp_dim=147,numb_patch=8, 
                 dropout=0.1,emb_dropout=0.1)
+    model = model.to(device)
     summary(model, input_size=(3, 32, 32))
 
     # Adding model graph to tensor-board
