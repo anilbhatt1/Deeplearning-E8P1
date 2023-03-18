@@ -97,7 +97,7 @@ def s9_run_main(num_epochs, maxlr):
 
     return f' s9_run_main() ended successfully '
 
-def s10_run_main(num_epochs):
+def s10_run_main(num_epochs, lr):
 
     # Data Augmentation & data loader stuff to be handled
     batch_size = 128
@@ -129,7 +129,7 @@ def s10_run_main(num_epochs):
     # Training the model for fixed epochs
     EPOCHS = num_epochs
     model = model.to(device)
-    optimizer = optim.Adam(model.parameters(), lr=1e-2)
+    optimizer = optim.Adam(model.parameters(), lr=lr)
     stats = ctr()
     train = train_losses(model, device, trainloader, stats, optimizer, EPOCHS)
     test  = test_losses(model, device, testloader, stats, EPOCHS)

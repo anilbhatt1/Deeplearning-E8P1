@@ -135,6 +135,7 @@ class test_losses():
       self.model.eval()
       test_loss, correct, count_wrong = 0, 0, 0
       criterion = nn.CrossEntropyLoss(reduction='sum')
+      torch.autograd.set_detect_anomaly(True)
       with torch.no_grad():
           for data, target in self.test_loader:
               data, target = data.to(self.device), target.to(self.device)

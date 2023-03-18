@@ -188,6 +188,7 @@ class train_losses():
         scaler = torch.cuda.amp.GradScaler()
         criterion = nn.CrossEntropyLoss()
         train_loss, correct, processed = 0, 0, 0
+        torch.autograd.set_detect_anomaly(True)
         for batch_idx, (data, target) in enumerate(pbar):
             data, target = data.to(self.device), target.to(self.device)
             with torch.cuda.amp.autocast():
