@@ -86,7 +86,7 @@ https://anilbhatt1.tech.blog/2020/07/03/understanding-object-detection-with-yolo
     - !cp /content/gdrive/MyDrive/EVA8_P1_S12/last.pt /content/YoloV3-master/weights/
 
 - Trained Yolo-V3 on the custom dataset to identify hardhat, mask, vest & boots. Below is the link to short video where model can seen detecting these objects.
-https://studio.youtube.com/video/0QDUot7q_u8/edit
+https://youtu.be/wN4gqvMEe0Y
 
 <!-- LICENSE -->
 ## License
