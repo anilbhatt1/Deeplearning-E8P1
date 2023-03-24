@@ -32,10 +32,11 @@ ________
 <!-- OpenCV-Yolo -->
 ## OpenCV Yolo
 
-- Refer : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S12_Yolo/EVA8_S12_Yolo_Selfie.ipynb
+- Refer : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S12_Yolo/EVA8_S12_Yolo_Selfie.ipynb
 - Image showing person and book as captured by OpenCV-Yolo can be seen as below.
 
-![Opencv](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S12_Yolo/Yolo_Opencv_Selfie.png)
+![Opencv](https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S12_Yolo/Yolo_Opencv_Selfie.png)
+
 
 <!-- Understanding-Yolo -->
 ## Understanding Yolo
@@ -76,7 +77,7 @@ https://anilbhatt1.tech.blog/2020/07/03/understanding-object-detection-with-yolo
 <!-- Yolo-V3-Training -->
 ## Yolo-V3 Training
 - Training was done in colab.
-- Refer training logs : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/main/S12_Yolo/EVA8_S12_YoloV3_hat_boot_vest_mask.ipynb
+- Refer training logs : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S12_Yolo/EVA8_S12_YoloV3_hat_boot_vest_mask.ipynb
 - Mount the gdrive
 - Unzip the Yolo folder we uploaded to gdrive.
 - While running for first time copy the yolov3-spp-ultralytics.pt file from gdrive to weights folder.
