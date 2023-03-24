@@ -17,9 +17,6 @@ ________
 
 * [Prerequisites](#prerequisites)
 * [Code](#Code)
-* [Network Diagram](#Network-Diagram)
-* [Loss And Accuracy Plots](#Loss-And-Accuracy-Plots)
-* [Misclassified Images](#Misclassified-Images)
 * [License](#license)
 
 ## Prerequisites
