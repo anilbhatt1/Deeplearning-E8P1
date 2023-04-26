@@ -33,28 +33,28 @@ ________
         - an MNIST image, and
         - its label (one hot encoded vector sent through an embedding layer)
     - Passing label as one-hot vector & concatenating it. Basic classification model, uses custom dataloader. Reference : https://github.com/gkdivya/EVA/blob/main/3_PyTorchNeuralNetwork/MNIST_RandomNumber_Addition.ipynb
-S13_MNIST_VAE_V0.ipynb
+File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_MNIST_VAE_V0.ipynb
     - VAE using nn.Linear on MNIST. Basic reconstruction not passing one-hot label as input. Reference : https://github.com/lyeoni/pytorch-mnist-VAE
-S13_MNIST_VAE_V1.ipynb
+File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_MNIST_VAE_V1.ipynb
     - Encoder(maxpool) & Decoder(Transpose2d) model adapted from VAE-MNIST-Experiments.ipynb. Uses Basic reconstruction not passing one-hot label as input to the model. Uses custom dataloader same as that used in S13_MNIST_VAE_V0.ipynb
-S13_MNIST_VAE_V2.ipynb
+File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_MNIST_VAE_V2.ipynb
     - VAE using nn.Linear on MNIST similar to S13_MNIST_VAE_V1.ipynb. Uses same dataloader as in https://github.com/lyeoni/pytorch-mnist-VAE. Passes one-hot label as input to model and uses torch.add to concatenate image tensor & one-hot label tensor. Gives good results.
-S13_MNIST_VAE_V3.ipynb
+File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_MNIST_VAE_V3.ipynb
 - For Training details of **CIFAR-10 VAE**, refer below colab notebook locations:
     - Takes in two inputs:
         - an MNIST image, and
         - its label (one hot encoded vector sent through an embedding layer)
-    - S13_CIFAR10_VAE_V1.ipynb   
+    - https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_CIFAR10_VAE_V1.ipynb 
 - **Dataset Used for UNET** : OxfordIIITPet
 - For Training details of , refer below colab notebook locations:
     - MP + TransposeConv + BCE
-        S13_UNET_mptrbce.ipynb
+        File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_UNET_mptrbce.ipynb
     - MP + TransposeConv + Dice Loss
-        S13_UNET_mptrdice.ipynb
+        File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_UNET_mptrdice.ipynb
     - StridedConv + TransposeConv + BCE
-        S13_UNET_strtrbce.ipynb
+        File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_UNET_strtrbce.ipynb
     - StridedConv + Upsampling + BCE
-        S13_UNET_strUpsbce.ipynb
+        File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S13_UNET_VAE/S13_UNET_strUpsbce.ipynb
 <!-- LICENSE -->
 ## License
 
