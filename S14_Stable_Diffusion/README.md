@@ -37,7 +37,7 @@ ________
     - Hence, image generated will have something representing "winged drones" in them.
 
 - For Training details refer below colab notebook locations:
-    - File : https://github.com/gkdivya/EVA/blob/main/3_PyTorchNeuralNetwork/MNIST_RandomNumber_Addition.ipynb  -> This is the initial notebook that uses https://huggingface.co/sd-concepts-library/birb-style
+    - File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S14_Stable_Diffusion/S14_Stable_Diffusion_V1.ipynb -> This is the initial notebook that uses https://huggingface.co/sd-concepts-library/birb-style
 
 <!-- LICENSE -->
 ## License
