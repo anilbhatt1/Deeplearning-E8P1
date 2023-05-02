@@ -33,11 +33,16 @@ ________
     - 10 Different styles downloaded from https://huggingface.co/sd-concepts-library is used to
     generate images
     - Loss function calculates the pattern loss between the output image and the desired pattern.
-    - The desired pattern that the output image should follow is extracted from a pre-trained model that inturn was trained against "winged drones".
-    - Hence, image generated will have something representing "winged drones" in them.
+    - The desired pattern that the output image should follow is extracted from a pre-trained model that inturn was trained against "winged drones with sky background".
+    - Embedding created was by feeding the image of lightning sky against this pre-trained model.
+    - Hence, image generated will have something representing "lightning sky" effect in them.
 
 - For Training details refer below colab notebook locations:
     - File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S14_Stable_Diffusion/S14_Stable_Diffusion_V1.ipynb -> This is the initial notebook that uses https://huggingface.co/sd-concepts-library/birb-style
+    - File : https://github.com/anilbhatt1/Deep_Learning_EVA8_Phase1/blob/master/S14_Stable_Diffusion/S14_Stable_Diffusion_V2.ipynb 
+        - Created 5 images that uses following styles 'anime_background_style_v2', 'birb', 'depthmap', 'gta5_artwork', 'midjourney'
+        - Styles were downloaded from https://huggingface.co/sd-concepts-library
+        - For same seed and styles, generated another 5 set of images to add lightning effect to the images by adding guidance via pattern loss (refer pattern_loss in the ipynb notebook)
 
 <!-- LICENSE -->
 ## License
