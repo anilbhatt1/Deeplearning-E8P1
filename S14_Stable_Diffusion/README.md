@@ -62,6 +62,7 @@ def pattern_loss(images, pattern):
     # Sum the difference over all channels and pixels.
     loss = torch.sum(diff)
     return loss
+```
 
 - Images created for different styles without any loss guidance
 
