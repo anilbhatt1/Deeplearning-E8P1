@@ -1,3 +1,4 @@
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -48,14 +49,14 @@ ________
 - For example, let us say we want to create winged drones flying like birds from a given image.
 - SD with CTLNET can help us achieve that as shown below:
 
- file:///home/anilbhatt/AI/Deeplearning-EVA8-Phase1/Controlnet-canny/images/a3-inference..png
+ ![a3-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/d44ea153-e4dd-404c-82c3-020b2457ade3)
  
 - In short, CTLNET equips us with the ability to control SD and generate images in the way we desire by passing a control image and prompt.
 - In the above example, we are converting the input image having 2 birds by passing the control image (canny edge black & white image) and prompt "A Winged Drone" to get back 2 winged drones flying similarly like the birds in input image.
 
 - Overall architecture of CTLNET is as follows:
 
-Copy CTLNET_Architecture.png
+![CTLNET_Architecture](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/02dbaad1-70d7-4cef-9f0f-bf84f1ce22e0)
 
 - The "trainable" one (with blue shades) learns our control condition (eg: canny edge, pose etc.). The "locked" one preserves the model.
 - Thanks to CTLNET, training with small custom datasets will not destroy the production-ready SD models.
