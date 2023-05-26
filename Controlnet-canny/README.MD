@@ -8,7 +8,7 @@
 -->
 [![MIT License][license-shield]][license-url]
 
-## Training and Inferencing Controlnet for Canny Edges Using Google Colab
+## Training and Inferencing Controlnet for Canny Edges 
 ________
 
 <!-- TABLE OF CONTENTS -->
