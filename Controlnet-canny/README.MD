@@ -1,5 +1,9 @@
 
 
+![Uploading a6-inference-1.png…]()
+
+
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -195,7 +199,7 @@ ________
             ![a4-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/ebd29660-875e-477e-8ddc-f5324756a3c3) 
     - **Conclusion** : This proves that pretrained model used further for training CTLNET with CDS provide good results compared to training the same from scratch.
 
-- Attempt 5 : 
+- **Attempt 5** : 
 
     - Reference notebook : [S15_ControlNet_V4.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V4.ipynb)  
     - Preloaded the model with v1-5-pruned.ckpt.
@@ -244,7 +248,7 @@ ________
        ![a5-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/3223a136-4ccc-4b58-8cf5-2f4fe4ab855c)
     - **Conclusion** : This proves that pretrained model with trainable copy initialized and trained using an established dataset can provide good results conforming to the conditions set via control image and prompt.
 
-- Attempt 6 :
+- **Attempt 6** :
 
     - Reference notebook : [S15_ControlNet_V5.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V5.ipynb)  
     - Preloaded the model with v1-5-pruned.ckpt (no canny edge involved so far).
@@ -262,11 +266,8 @@ ________
     - These were done to ensure that pretrained model (without any canny training) as such cannot provide the results conforming to the conditions (in this case canny edges).
     - **Conclusion** : Results confirm the understanding i.e. model gave output image based on the prompt but output didn't conform to the canny edge control input provided. Hence fine-tuning for specific condition (in this case - canny) is necessary.
 
-<br>
-
-- Attempt 7 : 
-
-    - Reference notebook : S15_ControlNet_V6.ipynb  
+- **Attempt 7** : 
+    - Reference notebook : [S15_ControlNet_V6.ipynb ](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V6.ipynb) 
     - Preloaded the model with v1-5-pruned.ckpt (no canny edge involved so far).
         ```
         downloaded_model_path = hf_hub_download(repo_id="runwayml/stable-diffusion-v1-5",
