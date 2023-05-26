@@ -1,9 +1,3 @@
-
-
-![Uploading a6-inference-1.png…]()
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -255,14 +249,14 @@ ________
     - Canny inferred a sample CDS image with this pretrained model before initializing the control-model weights.
     - Results were not resembling the canny edge captured.
 
-        copy a6-inference-1
+        ![a6-inference-1](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/8e43ea8f-1012-4545-85d3-f0c51e4736e4)
     - Then, initialized the control-model weights (no canny edge involved again so far).
     - Again Canny inferred with the same sample CDS image.
     - Results were again not resembling the canny edge captured.
 
-        copy a6-inference-2
+        ![a6-inference-2](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/114d5a76-6c82-4f5d-a649-e0dcb175317b)
 
-        copy a6-inference-3
+        ![a6-inference-3](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/b28651b5-98bf-41d5-a8f9-b67d871c3f11)
     - These were done to ensure that pretrained model (without any canny training) as such cannot provide the results conforming to the conditions (in this case canny edges).
     - **Conclusion** : Results confirm the understanding i.e. model gave output image based on the prompt but output didn't conform to the canny edge control input provided. Hence fine-tuning for specific condition (in this case - canny) is necessary.
 
@@ -302,23 +296,23 @@ ________
     - Results were good.
         - Sample created
 
-            Copy a7-sample-created
+            ![a7-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/539e9199-e001-4567-b8a9-1e5bf5babf00)
         - Reconstructed image
 
-            Copy a7-reconstructed-img
+            ![a7-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/fa46a625-1529-4c58-9f26-a28dcb3e1245)
         - Control image given as input for conditioning
 
-            Copy a7-control-img
+            ![a7-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/a41f4cfb-1233-435c-a7c1-2eff49d35ea4)
         - Captions supplied
 
-            Copy a7-captions  
+            ![a7-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7f0c42e7-e53a-415c-9ff3-6298e19bb697)  
     - Inferred with the same model & results are promising
 
-        copy a7-inference-1
+        ![a7-inference-1](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/c40a90f6-c296-40bf-940a-eafe3a970c18)
 
-        copy a7-inference-2
+        ![a7-inference-2](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4907326e-b5d7-449b-9875-4910a03f9e7f)
 
-        copy a7-inference-3
+        ![a7-inference-3](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/b8937fbb-2b68-4cb8-8bd3-15453da19627)
 
 <!-- LICENSE -->
 ## License
