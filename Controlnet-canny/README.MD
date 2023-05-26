@@ -48,8 +48,8 @@ ________
 - For example, let us say we want to create winged drones flying like birds from a given image.
 - SD with CTLNET can help us achieve that as shown below:
 
-Copy a3-inference.png
-
+ file:///home/anilbhatt/AI/Deeplearning-EVA8-Phase1/Controlnet-canny/images/a3-inference..png
+ 
 - In short, CTLNET equips us with the ability to control SD and generate images in the way we desire by passing a control image and prompt.
 - In the above example, we are converting the input image having 2 birds by passing the control image (canny edge black & white image) and prompt "A Winged Drone" to get back 2 winged drones flying similarly like the birds in input image.
 
