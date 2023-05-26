@@ -1,4 +1,7 @@
 
+
+
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -61,8 +64,6 @@ ________
 - The "trainable" one (with blue shades) learns our control condition (eg: canny edge, pose etc.). The "locked" one preserves the model.
 - Thanks to CTLNET, training with small custom datasets will not destroy the production-ready SD models.
 
-<br>
-
 ## Approach
 - Training is done based on [ctlnet-train] 
 - In this repo, we are attempting to **train CTLNET Canny Edge condition from scratch using a CDS**.
@@ -77,16 +78,19 @@ ________
     - Here **source** → Control image (in our case Canny Edge Sketch).This was created using cv2.canny.
         
         copy source.jpg
+        ![source](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/90ec02f4-b32e-40a9-8fcf-6b34455f2654)
+        
     - **target** → Original image
         
         copy target.jpg
+        ![target](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4a99e4a6-fe45-427e-97a6-55e441fdd435)
+        
     - **prompt** → A caption explaining the image.This was created using BLIP captioning.
 
         {"source": "source.jpg", "target": "target.jpg", "prompt": "two birds flying in the sky"}
 
-        copy corresponding prompt
 - Notebook dealing with CDS creation is as below. Check the section **Dataset creation for Canny**
-    - Give link for S15_ControlNet_V2.ipynb
+    - [S15_ControlNet_V2.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V2.ipynb)
 - Seven attempts were made for arriving at final solution. 
 - Details are as follows.
 
@@ -98,12 +102,13 @@ ________
 
 - **Attempt 1**: 
 
-    - Reference notebook : S15_ControlNet_V2.ipynb
+    - Reference notebook : [S15_ControlNet_V2.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V2.ipynb)
     - Model was created from '/models/cldm_v15.yaml' based on CTLNET-CLN [ctlnet-custom]
     - Trained the whole model from scratch using CDS for 10 epochs with A100 GPUs for batch_size = 8 (947 batches)
     - Training results were bad.
         - Sample created
 
+            ![a1-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4a75135c-0d81-4ec2-8561-323185a2efe0)
             Copy a1-sample-created
         - Reconstructed image
 
