@@ -1,13 +1,5 @@
 
 
-
-
-
-
-
-
-
-
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -112,21 +104,17 @@ ________
         - Reconstructed image
             
             ![a1-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/5817a2aa-9d80-40ec-8504-e5a90c59a536)
-            Copy a1-reconstructed-img
         - Control image given as input for conditioning
             
             ![a1-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/0bf1fd6e-3fe0-4505-b0f1-477efae799a0)
-            Copy a1-control-img
         - Captions supplied
             
             ![a1-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9cad7040-39e0-4297-b752-d4c5c1b44716)
-            Copy a1-captions 
     - Used 'gradio_canny2image.py' provided in CTLNET-CLN for inferencing.
     - Preloaded the ckpt file from above step against the model created from '/models/cldm_v15.yaml'
     - Inference results were bad.
 
         ![a1-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/bae711b7-7ea8-40cd-b5e1-fceddf735a00)
-        Copy a1-inference
     - **Conclusion** : Realized that training the whole model from scratch requires lot more epochs, data & computing power which is not possible.
     - But to rule out the suspicion that results are bad because CDS is bad, we will train the same way against [Fill50K] dataset.
     - If the results are equally bad, then we can rule out training the whole model from scratch.
@@ -141,26 +129,20 @@ ________
         - Sample created
 
             ![a2-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/73c67678-d246-4a99-9af7-9e9d618e41ae)
-            Copy a2-sample-created
         - Reconstructed image
             
             ![a2-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/b54f6164-071a-4ba0-9949-52af728270e7)
-            Copy a2-reconstructed-img
         - Control image given as input for conditioning
 
             ![a2-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/6dfbd7e8-1d8d-4f9d-8eb1-5ba1bcaeb20e)
-            Copy a2-control-img
         - Captions supplied
-            ![a2-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/0c504a73-6abc-4b1c-9e4b-b6c268054945)
-            Copy a2-captions     
+            ![a2-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/0c504a73-6abc-4b1c-9e4b-b6c268054945)  
     - **Conclusion**: This confirms that training the whole model from scratch requires lot more epochs, data & computng power which is not possible.
     - Accordingly training the whole model from scratch is dropped.
 
-<br>
-
 - **Attempt 3** : 
 
-    - Reference notebook : S15_ControlNet_Inference_V1.ipynb
+    - Reference notebook : [S15_ControlNet_Inference_V1.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_Inference_V1.ipynb)
     - Model was created from '/models/cldm_v15.yaml' based on CTLNET-CLN [ctlnet-custom]
     - Preloaded the model with canny pretrained weight ckpt file (control_sd15_canny.pth) and inferred with a sample image from CDS. 
         ```
@@ -181,13 +163,11 @@ ________
     - Results were good confirming that code set-up is fine.
     - **Conclusion**: This proves that pretrained model is already good in generating output image conforming to the conditions set via control image and prompt.
 
-        copy a3-inference
-
-<br>
+        ![a3-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/d44ea153-e4dd-404c-82c3-020b2457ade3)
 
 - **Attempt 4** : 
 
-    - Reference notebook : S15_ControlNet_V0.ipynb    
+    - Reference notebook : [S15_ControlNet_V0.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V0.ipynb)    
     - Preloaded the model with another SD ckpt file(v1-5-pruned.ckpt) suitable for fine-tuning. 
         ```
         downloaded_model_path = hf_hub_download(repo_id="runwayml/stable-diffusion-v1-5",
@@ -206,20 +186,18 @@ ________
     - This was done to check whether the entire code including training loop works fine in colab when trained with an established model against a standard dataset like [Fill50K].
     - Results were good.
         - Sample created
-            Copy a4-sample-created
+            ![a4-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/31b5ad12-9f1c-4a9e-8251-76ca1b14d91a)
         - Reconstructed image
-            Copy a4-reconstructed-img
+            ![a4-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/efec5013-5172-4943-acb1-efd8728b3aac)
         - Control image given as input for conditioning
-            Copy a4-control-img
+            ![a4-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/8717ec71-a861-47e6-903d-90956d9d17d4)
         - Captions supplied
-            Copy a4-captions  
+            ![a4-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/ebd29660-875e-477e-8ddc-f5324756a3c3) 
     - **Conclusion** : This proves that pretrained model used further for training CTLNET with CDS provide good results compared to training the same from scratch.
-
-<br>
 
 - Attempt 5 : 
 
-    - Reference notebook : S15_ControlNet_V4.ipynb  
+    - Reference notebook : [S15_ControlNet_V4.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V4.ipynb)  
     - Preloaded the model with v1-5-pruned.ckpt.
         ```
         downloaded_model_path = hf_hub_download(repo_id="runwayml/stable-diffusion-v1-5",
@@ -255,24 +233,20 @@ ________
     - This was done to check whether training is happening with established model after initializing the control-model against a standard dataset and how the results look like.
     - Results were good conforming to the conditions set via control image and prompt.
         - Sample created
-
-            Copy a5-sample-created
+            ![a5-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/fd0d87ba-6c0f-4ef4-9290-260a7a6e9625)
         - Reconstructed image
-
-            Copy a5-reconstructed-img
+            ![a5-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4b74ee1b-ad6a-40f1-ae6d-d78caa573264)
         - Control image given as input for conditioning
-
-            Copy a5-control-img
+            ![a5-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/777fda8e-6e1d-428b-9a72-4aa3cfc6ffcf)
         - Captions supplied
-
-            Copy a5-captions     
+            ![a5-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/99b097ca-18b9-4d1a-b9b5-9fda8245c8a3)
+    - Inferencing also earned good results
+       ![a5-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/3223a136-4ccc-4b58-8cf5-2f4fe4ab855c)
     - **Conclusion** : This proves that pretrained model with trainable copy initialized and trained using an established dataset can provide good results conforming to the conditions set via control image and prompt.
-
-<br>
 
 - Attempt 6 :
 
-    - Reference notebook : S15_ControlNet_V5.ipynb  
+    - Reference notebook : [S15_ControlNet_V5.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V5.ipynb)  
     - Preloaded the model with v1-5-pruned.ckpt (no canny edge involved so far).
     - Canny inferred a sample CDS image with this pretrained model before initializing the control-model weights.
     - Results were not resembling the canny edge captured.
