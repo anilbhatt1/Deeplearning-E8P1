@@ -2,6 +2,12 @@
 
 
 
+
+
+
+
+
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -77,12 +83,10 @@ ________
     - {"source": "source/0.png", "target": "target/0.png", "prompt": "pale golden rod circle with old lace background"}
     - Here **source** → Control image (in our case Canny Edge Sketch).This was created using cv2.canny.
         
-        copy source.jpg
         ![source](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/90ec02f4-b32e-40a9-8fcf-6b34455f2654)
         
     - **target** → Original image
         
-        copy target.jpg
         ![target](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4a99e4a6-fe45-427e-97a6-55e441fdd435)
         
     - **prompt** → A caption explaining the image.This was created using BLIP captioning.
@@ -94,11 +98,7 @@ ________
 - Seven attempts were made for arriving at final solution. 
 - Details are as follows.
 
-<br>
-
 ## Attempts-and-Results
-
-<br>
 
 - **Attempt 1**: 
 
@@ -109,46 +109,50 @@ ________
         - Sample created
 
             ![a1-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4a75135c-0d81-4ec2-8561-323185a2efe0)
-            Copy a1-sample-created
         - Reconstructed image
-
+            
+            ![a1-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/5817a2aa-9d80-40ec-8504-e5a90c59a536)
             Copy a1-reconstructed-img
         - Control image given as input for conditioning
-
+            
+            ![a1-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/0bf1fd6e-3fe0-4505-b0f1-477efae799a0)
             Copy a1-control-img
         - Captions supplied
-
+            
+            ![a1-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9cad7040-39e0-4297-b752-d4c5c1b44716)
             Copy a1-captions 
     - Used 'gradio_canny2image.py' provided in CTLNET-CLN for inferencing.
     - Preloaded the ckpt file from above step against the model created from '/models/cldm_v15.yaml'
     - Inference results were bad.
 
+        ![a1-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/bae711b7-7ea8-40cd-b5e1-fceddf735a00)
         Copy a1-inference
     - **Conclusion** : Realized that training the whole model from scratch requires lot more epochs, data & computing power which is not possible.
     - But to rule out the suspicion that results are bad because CDS is bad, we will train the same way against [Fill50K] dataset.
     - If the results are equally bad, then we can rule out training the whole model from scratch.
 
-<br>
-
 - **Attempt 2** : 
 
-    - Reference notebook : S15_ControlNet_V3.ipynb
+    - Reference notebook : [S15_ControlNet_V3.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/Controlnet-canny/S15_ControlNet_V3.ipynb)
     - Created the model same way as in attempt 1.
     - Trained the whole model from scratch using [Fill50K] for 1 epoch with A100 GPUs for batch_size =8.
     - This was done to ensure that CDS is not the culprit. 
     - Training results were equally bad as in attempt 1 confirming that CDS is not to blame.
         - Sample created
 
+            ![a2-sample-created](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/73c67678-d246-4a99-9af7-9e9d618e41ae)
             Copy a2-sample-created
         - Reconstructed image
-
+            
+            ![a2-reconstructed-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/b54f6164-071a-4ba0-9949-52af728270e7)
             Copy a2-reconstructed-img
         - Control image given as input for conditioning
 
-            Copy a3-control-img
+            ![a2-control-img](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/6dfbd7e8-1d8d-4f9d-8eb1-5ba1bcaeb20e)
+            Copy a2-control-img
         - Captions supplied
-
-            Copy a3-captions     
+            ![a2-captions](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/0c504a73-6abc-4b1c-9e4b-b6c268054945)
+            Copy a2-captions     
     - **Conclusion**: This confirms that training the whole model from scratch requires lot more epochs, data & computng power which is not possible.
     - Accordingly training the whole model from scratch is dropped.
 
