@@ -280,8 +280,7 @@ ________
     
 - Result
     
-   ![Uploading a4i.png…]()
-     
+   ![a4i](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/b1343835-96bb-4cd4-ab1f-3c17f22a6d6c)     
 
 **Attempt 4-J**
 - infer_steps = 50 
@@ -292,6 +291,8 @@ ________
 
 - Result
 
+    ![a4j](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/ce1d439d-ad23-4f63-8494-43e4898d463c)
+
 **Attempt 4-K**
 - infer_steps = 30 
 
@@ -301,6 +302,8 @@ ________
 
 - Result
 
+    ![a4k](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f7ea77cf-b9b7-46ad-bc29-58f1169f6756)
+
 **Attempt 4-L**
 - infer_steps = 10 
 
@@ -309,6 +312,8 @@ ________
 - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
 
 - Result
+
+    ![a4l](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9d8ef9ba-adf5-40d9-8f44-2800b9e7d672)
 
 <!-- LICENSE -->
 ## License
