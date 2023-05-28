@@ -85,14 +85,14 @@ ________
  **Attempt 1** :
 
 - We will use established StableDiffusionInpaintPipeline(SDIP) from HF in google colab and see how inpainting (inference only) works against pretrained weights.
-- Notebook : [Link to S15_Inpainting_V1.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpainting_V1.ipynb)
+- Notebook : [S15_Inpainting_V1.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpainting_V1.ipynb)
 - Results are good and image is reconstructed well
 
     ![a1-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/90212fec-696b-4fc3-87cc-6fc425d5963a)
 
 **Attempt 2** :
 
-- Notebook : [Copy link for S15_Inpaint_Unet_V2.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V2.ipynb)
+- Notebook : [S15_Inpaint_Unet_V2.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V2.ipynb)
 - Next we will train a UNET in smithsonian butterflies dataset.
     ![a2-butterfly-input](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7fec5053-7d81-4a4c-9de4-9f6ce79dc95b)
 
@@ -132,7 +132,7 @@ ________
 
 **Attempt 3** :
 
-- Notebook : [Copy link for S15_Inpaint_Unet_V3.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V3.ipynb)
+- Notebook : [S15_Inpaint_Unet_V3.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V3.ipynb)
 - Inorder to see if adding more variety of input data will help UNET perform better, we will train the UNET (trained on butterflies) with CDS also.
 - CDS comprised of 10_397 images of Flying Birds and Small QuadCopters.
 
@@ -150,11 +150,11 @@ ________
 
 - We will now attempt to build a SD pipeline that will use pretrained weights and give inpainting results.
 - To gain understanding on pipelines, we first used an SD inference pipeline that generates an image with a prompt only (no inpainting involved).
-- Notebook : [Copy link for S15_Inpaint_Inference_V0](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Inference_V0.ipynb)
+- Notebook : [S15_Inpaint_Inference_V0](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Inference_V0.ipynb)
 - HF Reference for writing a pipeline : https://huggingface.co/docs/diffusers/main/en/using-diffusers/write_own_pipeline
 
 - Then we created an SDIP with pretrained weights
-- Notebook : Copy link for S15_Inpaint_Inference_V1
+- Notebook : [S15_Inpaint_Inference_V3](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Inference_V3.ipynb)
 - Objective of inpainting is not to generate an image from scratch.
 - Instead it deals with either reconstructing or planting something new in the mask location.
 - Hence, the level of noise we need to start inferencing need not be 100%.
