@@ -58,17 +58,18 @@ ________
 
 ![Inpaint-Flow](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f40032de-fa1a-4785-a3b7-57c1650f7149)
 
-    - Original Image of size [3, 512, 512] is passed to VAE encoder which will convert it to latents of shape [4, 64, 64] 
-    - Binary mask will be created. Part of the image where black patch is present will be white and rest of the mask will be black. 
-    - Using this binary mask(BM) and original image(OI), a masked image (original image with black patch) will be created. 
-    - This will be passed to VAE encoder which will convert it to latents of shape [4, 64, 64].
-    - BM will be reshaped using torch.nn.interpolate to [1, 64, 64]
-    - All these 3 latents will be combined using torch.cat to get a shape of [9, 64, 64]
-    - This latent will be passed to UNET.
-    - UNET will give an output latent of shape [4, 64, 64]
-    - This will be passed to VAE decoder to eventually get output image with :
-        - Either black patch removed (image reconstruction - no text prompt)
-        - Or black patch replaced based on the text prompt
+- Original Image of size [3, 512, 512] is passed to VAE encoder which will convert it to latents of shape [4, 64, 64] 
+
+- Binary mask will be created. Part of the image where black patch is present will be white and rest of the mask will be black. 
+- Using this binary mask(BM) and original image(OI), a masked image (original image with black patch) will be created. 
+- This will be passed to VAE encoder which will convert it to latents of shape [4, 64, 64].
+- BM will be reshaped using torch.nn.interpolate to [1, 64, 64]
+- All these 3 latents will be combined using torch.cat to get a shape of [9, 64, 64]
+- This latent will be passed to UNET.
+- UNET will give an output latent of shape [4, 64, 64]
+- This will be passed to VAE decoder to eventually get output image with :
+    - Either black patch removed (image reconstruction - no text prompt)
+    - Or black patch replaced based on the text prompt
 
 ## Approach
 
@@ -182,122 +183,132 @@ ________
 - Accordingly various control levels and various latent combinations were tried out to see which one gave the best result.
 
 **Attempt 4-A**
-    - infer_steps = 10 
+
+- infer_steps = 10 
     
-    - latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-        ![a4a](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9a006eb7-95f4-4ea7-aa79-d6b7dfb17518)        
+    ![a4a](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9a006eb7-95f4-4ea7-aa79-d6b7dfb17518)        
 
 **Attempt 4-B**
-    - infer_steps = 30 
+- infer_steps = 30 
     
-    - latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-        ![a4b](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/e7c44c19-14f0-4f3a-bc39-4ee84ce4cc60)  
+    ![a4b](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/e7c44c19-14f0-4f3a-bc39-4ee84ce4cc60)  
 
 **Attempt 4-C**
-    - infer_steps = 10 
+- infer_steps = 10 
     
-    - latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
         
-        ![a4c](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f63f966a-ce97-48af-a3ab-20c10f38cada)
+    ![a4c](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f63f966a-ce97-48af-a3ab-20c10f38cada)
     
 **Attempt 4-D**
-    - infer_steps = 30 
+- infer_steps = 30 
     
-    - latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-        ![a4d](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/68c25d7b-37dc-4faf-919a-33b7486b3ca6)
+    ![a4d](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/68c25d7b-37dc-4faf-919a-33b7486b3ca6)
 
 **Attempt 4-E**
-    - infer_steps = 10 
+- infer_steps = 10 
     
-    - latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-       ![a4e](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/32cc71be-a7a2-4984-9a9f-93bd58a0d178) 
+    ![a4e](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/32cc71be-a7a2-4984-9a9f-93bd58a0d178) 
 
 **Attempt 4-F**
-    - infer_steps = 30 
+- infer_steps = 30 
     
-    - latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+- latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-        ![a4f](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/3cfe876a-c657-430b-8f90-81c4444ed28e)
+    ![a4f](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/3cfe876a-c657-430b-8f90-81c4444ed28e)
 
 **Attempt 4-G**
-    - infer_steps = 50 
+- infer_steps = 50 
     
-    - latent passed for noise reduction - MI-> [4, 64, 64] 
+- latent passed for noise reduction - MI-> [4, 64, 64] 
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
 
-        ![a4g](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/a805503e-8d0c-464d-9f7a-0187086314c5)   
+    ![a4g](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/a805503e-8d0c-464d-9f7a-0187086314c5)   
         
 **Attempt 4-H**
-    - infer_steps = 30 
+- infer_steps = 30 
     
-    - latent passed for noise reduction - MI-> [4, 64, 64] 
+- latent passed for noise reduction - MI-> [4, 64, 64] 
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - Result
+- Result
     
-        ![a4h](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7872b72f-7ace-44b5-8e5d-46803faeeb17)   
+    ![a4h](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7872b72f-7ace-44b5-8e5d-46803faeeb17)   
     
 **Attempt 4-I**
-    - infer_steps = 10 
+- infer_steps = 10 
+  
+- latent passed for noise reduction - MI-> [4, 64, 64] 
     
-    - latent passed for noise reduction - MI-> [4, 64, 64] 
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
     
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
-    
-    - Result
+- Result
     
    ![Uploading a4i.png…]()
      
 
 **Attempt 4-J**
-    - infer_steps = 50 
-    - latent passed for noise reduction - OI-> [4, 64, 64] 
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
-    - Result
+- infer_steps = 50 
+
+- latent passed for noise reduction - OI-> [4, 64, 64] 
+
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+
+- Result
 
 **Attempt 4-K**
-    - infer_steps = 30 
-    - latent passed for noise reduction - OI-> [4, 64, 64] 
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
-    - Result
+- infer_steps = 30 
+
+- latent passed for noise reduction - OI-> [4, 64, 64] 
+
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+
+- Result
 
 **Attempt 4-L**
-    - infer_steps = 10 
-    - latent passed for noise reduction - OI-> [4, 64, 64] 
-    - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
-    - Result
+- infer_steps = 10 
+
+- latent passed for noise reduction - OI-> [4, 64, 64] 
+
+- latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+
+- Result
 
 <!-- LICENSE -->
 ## License
