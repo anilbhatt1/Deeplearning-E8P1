@@ -52,11 +52,11 @@ ________
 
 - Stable Diffusion Inpainting is a latent text-to-image diffusion model capable of generating photo-realistic images given any text input, with the extra capability of inpainting the pictures by using a mask.
 
-Copy Inpaint-reconstruction.png
+![Inpaint-reconstruction](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/e6e53dd4-d54d-41c3-b081-d32dbc8b1a52)
 
-- Stable Diffusion high-level flow is as follows:
+- Stable Diffusion Inpainting high-level flow is as follows:
 
-    Copy Inpaint-Flow.png
+![Inpaint-Flow](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f40032de-fa1a-4785-a3b7-57c1650f7149)
 
     - Original Image of size [3, 512, 512] is passed to VAE encoder which will convert it to latents of shape [4, 64, 64] 
     - Binary mask will be created. Part of the image where black patch is present will be white and rest of the mask will be black. 
@@ -79,24 +79,21 @@ Copy Inpaint-reconstruction.png
 - We will then understand how a SD inference pipeline is constructed for generating an image with a prompt only (no inpainting involved)
 - Based on this understanding, we will built a custom pipeline for inpaint inferencing using pretrained weights from HF SD Inpaint models and see how results stack up. 
 
-
 ## Attempts-and-Results
 
  **Attempt 1** :
 
 - We will use established StableDiffusionInpaintPipeline(SDIP) from HF in google colab and see how inpainting (inference only) works against pretrained weights.
-- Notebook : Link to S15_Inpainting_V1.ipynb
-- Results are good and image is reconstructed as it is
+- Notebook : [Link to S15_Inpainting_V1.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpainting_V1.ipynb)
+- Results are good and image is reconstructed well
 
-Copy a1-inference.pmg
-
+    ![a1-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/90212fec-696b-4fc3-87cc-6fc425d5963a)
 
 **Attempt 2** :
 
-- Notebook : Copy link for S15_Inpaint_Unet_V2.ipynb
+- Notebook : [Copy link for S15_Inpaint_Unet_V2.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V2.ipynb)
 - Next we will train a UNET in smithsonian butterflies dataset.
-
-    copy a2-butterfly-input.png
+    ![a2-butterfly-input](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7fec5053-7d81-4a4c-9de4-9f6ce79dc95b)
 
 - Training was done for 95 epochs for image size (3, 128, 128), batchsize - 16 against A100 GPU.
 - Input given to UNET is as follows:
@@ -105,17 +102,17 @@ Copy a1-inference.pmg
         - [B, 4, 16, 16] -> MI latent (Converted from [3, 128, 128] via vae encoder)
         - [B, 1, 16, 16] -> BM latent (Converted via torch.nn.interpolate)
 - Results were not that good.
-
-    copy a2-training-result.png
+    
+    ![a2-training-result](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/03363a64-8a9a-40ca-9ed6-9fccdfc24032)
 
 - Based on this training, we checked how inference results look like when we incorporate our trained UNET in SDIP vs pretrained SDIP.
 - Results were not that great as expected for inference when SDIP was loaded with trained UNET.
 
-    copy a2-inference-unet-trained.png
+    ![a2-inference-unet-trained-1](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/1dca9ea1-26a9-46cf-b122-0a9f808470aa)
 
 - Results were obviously great when preatrained SDIP was used
 
-    copy a2-inference-pretrained.png
+    ![a2-inference-pretrained](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/6186630b-e18b-490a-a86f-4d1efcba0b69)
 
 - Next, we tried another inference pipeline. 
 - This one also uses pretrained weights in pipeline and accepts MI and BM as input.
@@ -123,30 +120,28 @@ Copy a1-inference.pmg
 - Reference script : https://github.com/Stability-AI/stablediffusion/blob/main/scripts/gradio/inpainting.py
 - Results were decent for this inferencing as well.
     - Input 
-
-        copy a2-gradio-input.png
+    
+        ![a2-gradio-input](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/fa4f5c18-716d-4a10-8d0a-7486aee83aba)
 
     - Inferred Result
-
-        copy a2-gradio-inference.png
+    
+        ![a2-gradio-inference](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/85534a8a-04d7-4cea-bc20-adf9ddb3c3b5)
 
 - **Conclusion** : Training UNET from scratch and using it in SDIP may not be feasible.
 
 **Attempt 3** :
 
-- Notebook : Copy link for S15_Inpaint_Unet_V3.ipynb
+- Notebook : [Copy link for S15_Inpaint_Unet_V3.ipynb](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Unet_V3.ipynb)
 - Inorder to see if adding more variety of input data will help UNET perform better, we will train the UNET (trained on butterflies) with CDS also.
 - CDS comprised of 10_397 images of Flying Birds and Small QuadCopters.
 
-    Copy a3-input.png
+    ![a3-input](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/4aeac68d-3973-4fa4-908e-4406d378a587)
 
 - Training was done for 1 epoch for image size (3, 128, 128), batchsize - 16 against A100 GPU.
 - Results were not great as expected.
 
-    copy a3-training-result-1.png    
-
-
-    copy a3-training-result-2.png  
+    ![a3-training-result-1](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/27076e1e-d9d0-494f-8887-ef0b483dc940)
+    ![a3-training-result-2](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/48d2b933-fa62-4135-b6c7-19e402d3d8b5)
 
 - **Conclusion** : Training UNET from scratch and using it in SDIP wont be feasible.
 
@@ -154,7 +149,7 @@ Copy a1-inference.pmg
 
 - We will now attempt to build a SD pipeline that will use pretrained weights and give inpainting results.
 - To gain understanding on pipelines, we first used an SD inference pipeline that generates an image with a prompt only (no inpainting involved).
-- Notebook : Copy link for S15_Inpaint_Inference_V0
+- Notebook : [Copy link for S15_Inpaint_Inference_V0](https://github.com/anilbhatt1/Deeplearning-E8P1/blob/master/StableDiffusion-Inpainting/S15_Inpaint_Inference_V0.ipynb)
 - HF Reference for writing a pipeline : https://huggingface.co/docs/diffusers/main/en/using-diffusers/write_own_pipeline
 
 - Then we created an SDIP with pretrained weights
