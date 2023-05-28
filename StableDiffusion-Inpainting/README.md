@@ -183,57 +183,103 @@ ________
 
 **Attempt 4-A**
     - infer_steps = 10 
+    
     - latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+        ![a4a](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/9a006eb7-95f4-4ea7-aa79-d6b7dfb17518)        
 
 **Attempt 4-B**
     - infer_steps = 30 
+    
     - latent passed for noise reduction - OI + MI + BM -> [9, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+        ![a4b](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/e7c44c19-14f0-4f3a-bc39-4ee84ce4cc60)  
 
 **Attempt 4-C**
     - infer_steps = 10 
+    
     - latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+        
+        ![a4c](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/f63f966a-ce97-48af-a3ab-20c10f38cada)
     
 **Attempt 4-D**
     - infer_steps = 30 
+    
     - latent passed for noise reduction - MI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+        ![a4d](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/68c25d7b-37dc-4faf-919a-33b7486b3ca6)
 
 **Attempt 4-E**
     - infer_steps = 10 
+    
     - latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+       ![a4e](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/32cc71be-a7a2-4984-9a9f-93bd58a0d178) 
 
 **Attempt 4-F**
     - infer_steps = 30 
+    
     - latent passed for noise reduction - OI + BM -> [5, 64, 64] reshaped to [4, 64, 64] via 1x1 convolution
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+        ![a4f](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/3cfe876a-c657-430b-8f90-81c4444ed28e)
 
 **Attempt 4-G**
     - infer_steps = 50 
+    
     - latent passed for noise reduction - MI-> [4, 64, 64] 
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
 
+        ![a4g](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/a805503e-8d0c-464d-9f7a-0187086314c5)   
+        
 **Attempt 4-H**
     - infer_steps = 30 
+    
     - latent passed for noise reduction - MI-> [4, 64, 64] 
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
-
+    
+        ![a4h](https://github.com/anilbhatt1/Deeplearning-E8P1/assets/43835604/7872b72f-7ace-44b5-8e5d-46803faeeb17)   
+    
 **Attempt 4-I**
     - infer_steps = 10 
+    
     - latent passed for noise reduction - MI-> [4, 64, 64] 
+    
     - latent passed for noise prediction to UNET - OI + MI + BM -> [9, 64, 64]
+    
     - Result
+    
+   ![Uploading a4i.png…]()
+     
 
 **Attempt 4-J**
     - infer_steps = 50 
