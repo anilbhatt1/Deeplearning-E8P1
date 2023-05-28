@@ -181,6 +181,7 @@ ________
                                 encoder_hidden_states=text_embeddings).sample
     ```
 - Accordingly various control levels and various latent combinations were tried out to see which one gave the best result.
+- **Attempt 4-L** gave the best result
 
 **Attempt 4-A**
 
